@@ -30,19 +30,22 @@ const Index = () => {
       title: 'Люкс',
       description: 'Просторный номер с видом на город',
       features: ['40 м²', 'King Size', 'Ванна', 'Мини-бар'],
-      price: '8 500 ₽/ночь'
+      price: '8 500 ₽/ночь',
+      image: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80'
     },
     {
       title: 'Стандарт',
       description: 'Уютный номер для комфортного отдыха',
       features: ['25 м²', 'Queen Size', 'Душ', 'Wi-Fi'],
-      price: '4 500 ₽/ночь'
+      price: '4 500 ₽/ночь',
+      image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80'
     },
     {
       title: 'Студия',
       description: 'Современный номер с кухонной зоной',
       features: ['35 м²', 'King Size', 'Кухня', 'Терраса'],
-      price: '6 500 ₽/ночь'
+      price: '6 500 ₽/ночь',
+      image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&q=80'
     }
   ];
 
@@ -113,10 +116,12 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {rooms.map((room, idx) => (
               <Card key={idx} className="overflow-hidden hover:shadow-xl transition-shadow animate-scale-in" style={{ animationDelay: `${idx * 0.1}s` }}>
-                <div className="aspect-[4/3] bg-gradient-to-br from-primary/10 to-accent/10 relative overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Icon name="Hotel" size={64} className="text-primary/20" />
-                  </div>
+                <div className="aspect-[4/3] relative overflow-hidden">
+                  <img 
+                    src={room.image} 
+                    alt={room.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-2xl font-bold mb-2">{room.title}</h3>
